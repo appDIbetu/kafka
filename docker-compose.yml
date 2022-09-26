@@ -5,6 +5,10 @@ services:
     image: 'wurstmeister/zookeeper'
     ports:
       - '2181:2181'
+    networks:
+       custom-network:
+        aliases:
+          - zookeeper
   
           
   kafka:  
@@ -28,3 +32,11 @@ services:
          KAFKA_CREATE_TOPICS: myTopic:3:3
       volumes:
          - /var/run/docker.sock:/var/run/docker.sock
+      networks:
+       custom-network:
+        aliases:
+          - kafka
+
+networks:
+  custom-network:
+    external: true
