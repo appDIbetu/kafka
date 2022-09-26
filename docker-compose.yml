@@ -2,10 +2,8 @@ version: '3.2'
 services:
   zookeeper:
     image: wurstmeister/zookeeper
-    volumes:
-      - /opt/data/zookeeper:/opt/zookeeper-3.4.6/data
     ports:
-      - 2181
+      - '2181:2181'
   kafka-1:
     image: wurstmeister/kafka:latest
     environment:
