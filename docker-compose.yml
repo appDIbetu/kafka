@@ -18,11 +18,11 @@ services:
            mode: host
       environment: 
          HOSTNAME_COMMAND: "docker info | grep ^Name: | cut -d' ' -f 2" # Normal instances
-         KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-         KAFKA_LISTENERS: INTERNAL://0.0.0.0:9092,OUTSIDE://168.119.119.105:9094
-         KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,OUTSIDE://168.119.119.105:9094
+         KAFKA_LISTENERS: INTERNAL://:9092,OUTSIDE:://0.0.0.0:9093
          KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,OUTSIDE:PLAINTEXT
          KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+         KAFKA_ADVERTISED_LISTENERS: INTERNAL://:9092,OUTSIDE://168.119.119.105:9093
          KAFKA_CREATE_TOPICS: myTopic:1:1
+         KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       volumes:
          - /var/run/docker.sock:/var/run/docker.sock
