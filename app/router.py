@@ -13,7 +13,7 @@ async def send(message: Message):
         loop=loop, bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS)
     await producer.start()
     try:
-        print(f'Sendding message with value: {message}')
+        print(f'Sending message with value: {message}')
         value_json = json.dumps(message.__dict__).encode('utf-8')
         await producer.send_and_wait(topic=KAFKA_TOPIC, value=value_json)
     finally:
