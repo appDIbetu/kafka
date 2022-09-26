@@ -6,9 +6,7 @@ services:
     ports:
       - '2181:2181'
     networks:
-       custom-network:
-        aliases:
-          - zookeeper
+       - kafka
   
           
   kafka:  
@@ -33,10 +31,4 @@ services:
       volumes:
          - /var/run/docker.sock:/var/run/docker.sock
       networks:
-       custom-network:
-        aliases:
-          - kafka
-
-networks:
-  custom-network:
-    external: true
+       - kafka
