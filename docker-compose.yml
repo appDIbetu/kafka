@@ -6,10 +6,6 @@ services:
       - /opt/data/zookeeper:/opt/zookeeper-3.4.6/data
     ports:
       - 2181
-    networks:
-      custom-network:
-        aliases:
-          - zookeeper
   kafka-1:
     image: wurstmeister/kafka:latest
     environment:
@@ -28,10 +24,6 @@ services:
       KAFKA_LOG_DIRS: /kafka/kafka-logs
     volumes:
       - /opt/data/kafka-1:/kafka/kafka-logs
-    networks:
-      custom-network:
-        aliases:
-          - kafka-1
 
   kafka-2:
     image: wurstmeister/kafka:latest
@@ -51,10 +43,6 @@ services:
       KAFKA_LOG_DIRS: /kafka/kafka-logs
     volumes:
       - /opt/data/kafka-2:/kafka/kafka-logs
-    networks:
-      custom-network:
-        aliases:
-          - kafka-2
 
   kafka-3:
     image: wurstmeister/kafka:latest
@@ -74,11 +62,3 @@ services:
       KAFKA_LOG_DIRS: /kafka/kafka-logs
     volumes:
       - /opt/data/kafka-3:/kafka/kafka-logs
-    networks:
-      custom-network:
-        aliases:
-          - kafka-3
-
-networks:
-  custom-network:
-    external: true
