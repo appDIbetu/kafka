@@ -15,6 +15,8 @@ services:
       image: wurstmeister/kafka:latest
       deploy: 
             mode: global
+
+      restart: always
       
       ports:
        - "9093:9093"
@@ -42,6 +44,8 @@ services:
       image: wurstmeister/kafka:latest
       deploy: 
             mode: global
+
+      restart: always
       
       ports:
        - "9094:9094"
@@ -69,6 +73,8 @@ services:
       image: wurstmeister/kafka:latest
       deploy: 
             mode: global
+
+      restart: always
       
       ports:
        - "9095:9095"
